@@ -1,0 +1,508 @@
+export const translations = {
+  en: {
+    // Common
+    common: {
+      save: 'Save',
+      cancel: 'Cancel',
+      delete: 'Delete',
+      edit: 'Edit',
+      create: 'Create',
+      add: 'Add',
+      search: 'Search',
+      loading: 'Loading...',
+      error: 'Error',
+      success: 'Success',
+      confirm: 'Confirm',
+      back: 'Back',
+      settings: 'Settings',
+      profile: 'Profile',
+      logout: 'Log out',
+    },
+
+    // Auth
+    auth: {
+      login: 'Sign in',
+      register: 'Sign up',
+      email: 'Email',
+      password: 'Password',
+      confirmPassword: 'Confirm Password',
+      name: 'Name',
+      welcomeBack: 'Welcome back',
+      enterCredentials: 'Enter your credentials to access your account',
+      createAccount: 'Create an account',
+      enterDetails: 'Enter your details to get started',
+      signingIn: 'Signing in...',
+      creatingAccount: 'Creating account...',
+      noAccount: "Don't have an account?",
+      haveAccount: 'Already have an account?',
+      invalidCredentials: 'Invalid email or password',
+      registrationFailed: 'Registration failed. Email may already be registered.',
+      passwordsNotMatch: 'Passwords do not match',
+      passwordTooShort: 'Password must be at least 6 characters',
+      getStarted: 'Get Started',
+    },
+
+    // Home
+    home: {
+      title: 'Manage tasks with',
+      subtitle: 'A modern task management system with drag-and-drop interface and real-time updates. Organize your work, collaborate with your team, and get things done.',
+      getStartedFree: 'Get Started Free',
+      signIn: 'Sign In',
+      kanbanBoards: 'Kanban Boards',
+      kanbanDesc: 'Visualize your workflow with customizable boards and columns.',
+      realTimeUpdates: 'Real-time Updates',
+      realTimeDesc: 'See changes instantly as your team collaborates in real-time.',
+      teamCollaboration: 'Team Collaboration',
+      teamDesc: 'Work together with your team in shared workspaces.',
+      everythingYouNeed: 'Everything you need',
+      features: {
+        dragDrop: 'Drag & drop interface',
+        multipleWorkspaces: 'Multiple workspaces',
+        priorityLevels: 'Priority levels',
+        dueDates: 'Due dates & deadlines',
+        comments: 'Comments & activity',
+        labels: 'Labels & tags',
+      },
+    },
+
+    // Dashboard
+    dashboard: {
+      title: 'Dashboard',
+      subtitle: 'Manage your workspaces and projects',
+      newWorkspace: 'New Workspace',
+      noWorkspaces: 'No workspaces yet',
+      createFirst: 'Create your first workspace to get started',
+      createWorkspace: 'Create Workspace',
+      workspaceName: 'Name',
+      workspaceDesc: 'Description (optional)',
+      workspaceDescPlaceholder: "What's this workspace for?",
+      boards: 'boards',
+      members: 'members',
+      noDescription: 'No description',
+    },
+
+    // Workspace
+    workspace: {
+      backToDashboard: 'Back to Dashboard',
+      newBoard: 'New Board',
+      createBoard: 'Create Board',
+      boardName: 'Board Name',
+      backgroundColor: 'Background Color',
+      createNewBoard: 'Create new board',
+      deleteBoard: 'Are you sure you want to delete this board?',
+      members: 'Members',
+      inviteMember: 'Invite Member',
+      enterEmail: 'Enter email address',
+      invite: 'Invite',
+      removeMember: 'Remove member',
+      owner: 'Owner',
+      admin: 'Admin',
+      member: 'Member',
+      viewer: 'Viewer',
+    },
+
+    // Board
+    board: {
+      addList: 'Add another list',
+      addCard: 'Add a card',
+      enterListTitle: 'Enter list title...',
+      enterCardTitle: 'Enter card title...',
+      deleteList: 'Delete list',
+      online: 'online',
+    },
+
+    // Card
+    card: {
+      description: 'Description',
+      descriptionPlaceholder: 'Add a more detailed description...',
+      priority: 'Priority',
+      dueDate: 'Due Date',
+      assignedTo: 'Assigned to:',
+      assignee: 'Assignee',
+      selectAssignee: 'Select assignee',
+      noAssignee: 'No assignee',
+      comments: 'Comments',
+      writeComment: 'Write a comment...',
+      saveChanges: 'Save Changes',
+      saving: 'Saving...',
+      low: 'Low',
+      medium: 'Medium',
+      high: 'High',
+      labels: 'Labels',
+      addLabel: 'Add label',
+      labelName: 'Label name',
+      labelColor: 'Color',
+      checklists: 'Checklists',
+      addChecklist: 'Add checklist',
+      checklistTitle: 'Checklist title',
+      addItem: 'Add item',
+    },
+
+    // Theme
+    theme: {
+      light: 'Light',
+      dark: 'Dark',
+      system: 'System',
+      theme: 'Theme',
+    },
+
+    // Language
+    language: {
+      language: 'Language',
+      english: 'English',
+      ukrainian: 'Ukrainian',
+      russian: 'Russian',
+    },
+
+    // Profile
+    profile: {
+      title: 'Profile',
+      subtitle: 'Manage your account settings',
+      personalInfo: 'Personal Information',
+      updateProfile: 'Update Profile',
+      updating: 'Updating...',
+      avatarUrl: 'Avatar URL',
+      avatarPlaceholder: 'https://example.com/avatar.jpg',
+      profileUpdated: 'Profile updated successfully',
+      updateFailed: 'Failed to update profile',
+      memberSince: 'Member since',
+      workspacesCount: 'Workspaces',
+    },
+  },
+
+  uk: {
+    // Common
+    common: {
+      save: 'Зберегти',
+      cancel: 'Скасувати',
+      delete: 'Видалити',
+      edit: 'Редагувати',
+      create: 'Створити',
+      add: 'Додати',
+      search: 'Пошук',
+      loading: 'Завантаження...',
+      error: 'Помилка',
+      success: 'Успішно',
+      confirm: 'Підтвердити',
+      back: 'Назад',
+      settings: 'Налаштування',
+      profile: 'Профіль',
+      logout: 'Вийти',
+    },
+
+    // Auth
+    auth: {
+      login: 'Увійти',
+      register: 'Реєстрація',
+      email: 'Електронна пошта',
+      password: 'Пароль',
+      confirmPassword: 'Підтвердіть пароль',
+      name: "Ім'я",
+      welcomeBack: 'З поверненням',
+      enterCredentials: 'Введіть свої дані для входу в обліковий запис',
+      createAccount: 'Створити обліковий запис',
+      enterDetails: 'Введіть свої дані для початку роботи',
+      signingIn: 'Вхід...',
+      creatingAccount: 'Створення облікового запису...',
+      noAccount: 'Немає облікового запису?',
+      haveAccount: 'Вже є обліковий запис?',
+      invalidCredentials: 'Невірна електронна пошта або пароль',
+      registrationFailed: 'Реєстрація не вдалася. Можливо, email вже зареєстровано.',
+      passwordsNotMatch: 'Паролі не співпадають',
+      passwordTooShort: 'Пароль повинен містити щонайменше 6 символів',
+      getStarted: 'Почати',
+    },
+
+    // Home
+    home: {
+      title: 'Керуйте завданнями з',
+      subtitle: 'Сучасна система управління завданнями з drag-and-drop інтерфейсом та оновленнями в реальному часі. Організуйте свою роботу, співпрацюйте з командою та досягайте цілей.',
+      getStartedFree: 'Почати безкоштовно',
+      signIn: 'Увійти',
+      kanbanBoards: 'Канбан дошки',
+      kanbanDesc: 'Візуалізуйте робочий процес за допомогою налаштовуваних дошок та колонок.',
+      realTimeUpdates: 'Оновлення в реальному часі',
+      realTimeDesc: 'Бачте зміни миттєво, коли ваша команда працює разом.',
+      teamCollaboration: 'Командна робота',
+      teamDesc: 'Працюйте разом з командою в спільних робочих просторах.',
+      everythingYouNeed: 'Все, що вам потрібно',
+      features: {
+        dragDrop: 'Drag & drop інтерфейс',
+        multipleWorkspaces: 'Кілька робочих просторів',
+        priorityLevels: 'Рівні пріоритету',
+        dueDates: 'Терміни виконання',
+        comments: 'Коментарі та активність',
+        labels: 'Мітки та теги',
+      },
+    },
+
+    // Dashboard
+    dashboard: {
+      title: 'Панель керування',
+      subtitle: 'Керуйте своїми робочими просторами та проектами',
+      newWorkspace: 'Новий простір',
+      noWorkspaces: 'Поки немає робочих просторів',
+      createFirst: 'Створіть свій перший робочий простір',
+      createWorkspace: 'Створити простір',
+      workspaceName: 'Назва',
+      workspaceDesc: 'Опис (необов\'язково)',
+      workspaceDescPlaceholder: 'Для чого цей робочий простір?',
+      boards: 'дошок',
+      members: 'учасників',
+      noDescription: 'Без опису',
+    },
+
+    // Workspace
+    workspace: {
+      backToDashboard: 'Назад до панелі',
+      newBoard: 'Нова дошка',
+      createBoard: 'Створити дошку',
+      boardName: 'Назва дошки',
+      backgroundColor: 'Колір фону',
+      createNewBoard: 'Створити нову дошку',
+      deleteBoard: 'Ви впевнені, що хочете видалити цю дошку?',
+      members: 'Учасники',
+      inviteMember: 'Запросити учасника',
+      enterEmail: 'Введіть email адресу',
+      invite: 'Запросити',
+      removeMember: 'Видалити учасника',
+      owner: 'Власник',
+      admin: 'Адмін',
+      member: 'Учасник',
+      viewer: 'Глядач',
+    },
+
+    // Board
+    board: {
+      addList: 'Додати ще список',
+      addCard: 'Додати картку',
+      enterListTitle: 'Введіть назву списку...',
+      enterCardTitle: 'Введіть назву картки...',
+      deleteList: 'Видалити список',
+      online: 'онлайн',
+    },
+
+    // Card
+    card: {
+      description: 'Опис',
+      descriptionPlaceholder: 'Додайте більш детальний опис...',
+      priority: 'Пріоритет',
+      dueDate: 'Термін',
+      assignedTo: 'Призначено:',
+      assignee: 'Виконавець',
+      selectAssignee: 'Обрати виконавця',
+      noAssignee: 'Без виконавця',
+      comments: 'Коментарі',
+      writeComment: 'Напишіть коментар...',
+      saveChanges: 'Зберегти зміни',
+      saving: 'Збереження...',
+      low: 'Низький',
+      medium: 'Середній',
+      high: 'Високий',
+      labels: 'Мітки',
+      addLabel: 'Додати мітку',
+      labelName: 'Назва мітки',
+      labelColor: 'Колір',
+      checklists: 'Чекліст',
+      addChecklist: 'Додати чекліст',
+      checklistTitle: 'Назва чеклісту',
+      addItem: 'Додати пункт',
+    },
+
+    // Theme
+    theme: {
+      light: 'Світла',
+      dark: 'Темна',
+      system: 'Системна',
+      theme: 'Тема',
+    },
+
+    // Language
+    language: {
+      language: 'Мова',
+      english: 'Англійська',
+      ukrainian: 'Українська',
+      russian: 'Російська',
+    },
+
+    // Profile
+    profile: {
+      title: 'Профіль',
+      subtitle: 'Керуйте налаштуваннями облікового запису',
+      personalInfo: 'Особиста інформація',
+      updateProfile: 'Оновити профіль',
+      updating: 'Оновлення...',
+      avatarUrl: 'URL аватара',
+      avatarPlaceholder: 'https://example.com/avatar.jpg',
+      profileUpdated: 'Профіль успішно оновлено',
+      updateFailed: 'Не вдалося оновити профіль',
+      memberSince: 'Учасник з',
+      workspacesCount: 'Робочих просторів',
+    },
+  },
+
+  ru: {
+    // Common
+    common: {
+      save: 'Сохранить',
+      cancel: 'Отмена',
+      delete: 'Удалить',
+      edit: 'Редактировать',
+      create: 'Создать',
+      add: 'Добавить',
+      search: 'Поиск',
+      loading: 'Загрузка...',
+      error: 'Ошибка',
+      success: 'Успешно',
+      confirm: 'Подтвердить',
+      back: 'Назад',
+      settings: 'Настройки',
+      profile: 'Профиль',
+      logout: 'Выйти',
+    },
+
+    // Auth
+    auth: {
+      login: 'Войти',
+      register: 'Регистрация',
+      email: 'Электронная почта',
+      password: 'Пароль',
+      confirmPassword: 'Подтвердите пароль',
+      name: 'Имя',
+      welcomeBack: 'С возвращением',
+      enterCredentials: 'Введите свои данные для входа в аккаунт',
+      createAccount: 'Создать аккаунт',
+      enterDetails: 'Введите свои данные для начала работы',
+      signingIn: 'Вход...',
+      creatingAccount: 'Создание аккаунта...',
+      noAccount: 'Нет аккаунта?',
+      haveAccount: 'Уже есть аккаунт?',
+      invalidCredentials: 'Неверный email или пароль',
+      registrationFailed: 'Регистрация не удалась. Возможно, email уже зарегистрирован.',
+      passwordsNotMatch: 'Пароли не совпадают',
+      passwordTooShort: 'Пароль должен содержать минимум 6 символов',
+      getStarted: 'Начать',
+    },
+
+    // Home
+    home: {
+      title: 'Управляйте задачами с',
+      subtitle: 'Современная система управления задачами с drag-and-drop интерфейсом и обновлениями в реальном времени. Организуйте свою работу, сотрудничайте с командой и достигайте целей.',
+      getStartedFree: 'Начать бесплатно',
+      signIn: 'Войти',
+      kanbanBoards: 'Канбан доски',
+      kanbanDesc: 'Визуализируйте рабочий процесс с помощью настраиваемых досок и колонок.',
+      realTimeUpdates: 'Обновления в реальном времени',
+      realTimeDesc: 'Видите изменения мгновенно, когда ваша команда работает вместе.',
+      teamCollaboration: 'Командная работа',
+      teamDesc: 'Работайте вместе с командой в общих рабочих пространствах.',
+      everythingYouNeed: 'Всё, что вам нужно',
+      features: {
+        dragDrop: 'Drag & drop интерфейс',
+        multipleWorkspaces: 'Несколько рабочих пространств',
+        priorityLevels: 'Уровни приоритета',
+        dueDates: 'Сроки выполнения',
+        comments: 'Комментарии и активность',
+        labels: 'Метки и теги',
+      },
+    },
+
+    // Dashboard
+    dashboard: {
+      title: 'Панель управления',
+      subtitle: 'Управляйте своими рабочими пространствами и проектами',
+      newWorkspace: 'Новое пространство',
+      noWorkspaces: 'Пока нет рабочих пространств',
+      createFirst: 'Создайте своё первое рабочее пространство',
+      createWorkspace: 'Создать пространство',
+      workspaceName: 'Название',
+      workspaceDesc: 'Описание (необязательно)',
+      workspaceDescPlaceholder: 'Для чего это рабочее пространство?',
+      boards: 'досок',
+      members: 'участников',
+      noDescription: 'Без описания',
+    },
+
+    // Workspace
+    workspace: {
+      backToDashboard: 'Назад к панели',
+      newBoard: 'Новая доска',
+      createBoard: 'Создать доску',
+      boardName: 'Название доски',
+      backgroundColor: 'Цвет фона',
+      createNewBoard: 'Создать новую доску',
+      deleteBoard: 'Вы уверены, что хотите удалить эту доску?',
+    },
+
+    // Board
+    board: {
+      addList: 'Добавить ещё список',
+      addCard: 'Добавить карточку',
+      enterListTitle: 'Введите название списка...',
+      enterCardTitle: 'Введите название карточки...',
+      deleteList: 'Удалить список',
+      online: 'онлайн',
+    },
+
+    // Card
+    card: {
+      description: 'Описание',
+      descriptionPlaceholder: 'Добавьте более подробное описание...',
+      priority: 'Приоритет',
+      dueDate: 'Срок',
+      assignedTo: 'Назначено:',
+      assignee: 'Исполнитель',
+      selectAssignee: 'Выбрать исполнителя',
+      noAssignee: 'Без исполнителя',
+      comments: 'Комментарии',
+      writeComment: 'Напишите комментарий...',
+      saveChanges: 'Сохранить изменения',
+      saving: 'Сохранение...',
+      low: 'Низкий',
+      medium: 'Средний',
+      high: 'Высокий',
+      labels: 'Метки',
+      addLabel: 'Добавить метку',
+      labelName: 'Название метки',
+      labelColor: 'Цвет',
+      checklists: 'Чеклист',
+      addChecklist: 'Добавить чеклист',
+      checklistTitle: 'Название чеклиста',
+      addItem: 'Добавить пункт',
+    },
+
+    // Theme
+    theme: {
+      light: 'Светлая',
+      dark: 'Тёмная',
+      system: 'Системная',
+      theme: 'Тема',
+    },
+
+    // Language
+    language: {
+      language: 'Язык',
+      english: 'Английский',
+      ukrainian: 'Украинский',
+      russian: 'Русский',
+    },
+
+    // Profile
+    profile: {
+      title: 'Профиль',
+      subtitle: 'Управляйте настройками аккаунта',
+      personalInfo: 'Личная информация',
+      updateProfile: 'Обновить профиль',
+      updating: 'Обновление...',
+      avatarUrl: 'URL аватара',
+      avatarPlaceholder: 'https://example.com/avatar.jpg',
+      profileUpdated: 'Профиль успешно обновлён',
+      updateFailed: 'Не удалось обновить профиль',
+      memberSince: 'Участник с',
+      workspacesCount: 'Рабочих пространств',
+    },
+  },
+} as const;
+
+export type Language = keyof typeof translations;
+export type TranslationKeys = (typeof translations)[Language];

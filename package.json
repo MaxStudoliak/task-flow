@@ -1,0 +1,25 @@
+{
+  "name": "task-flow",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "db:generate": "yarn workspace backend prisma generate",
+    "db:migrate": "yarn workspace backend prisma migrate dev",
+    "db:seed": "yarn workspace backend prisma db seed"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "typescript": "^5.3.3",
+    "@types/node": "^20.10.6"
+  },
+  "packageManager": "yarn@1.22.22"
+}

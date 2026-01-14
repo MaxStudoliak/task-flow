@@ -2,7 +2,7 @@ import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Calendar, MessageSquare, CheckSquare, Trash2 } from 'lucide-react';
 import type { Card } from '@/types';
-import { cn, formatDate, getPriorityColor } from '@/lib/utils';
+import { cn, getPriorityColor } from '@/lib/utils';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { useLanguageStore } from '@/stores/language.store';
@@ -82,7 +82,13 @@ export function BoardCard({ card, onClick, onDelete }: BoardCardProps) {
         {card.dueDate && (
           <div className="flex items-center gap-0.5 text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">
             <Calendar className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
-            <span className="hidden sm:inline">{formatDate(card.dueDate)}</span>
+            <span className="hidden sm:inline">
+              {new Date(card.dueDate).toLocaleDateString(locale, {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric',
+              })}
+            </span>
             <span className="sm:hidden">
               {new Date(card.dueDate).toLocaleDateString(locale, {
                 day: 'numeric',

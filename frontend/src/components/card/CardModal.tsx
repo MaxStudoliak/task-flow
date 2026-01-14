@@ -89,6 +89,7 @@ export function CardModal({ card, open, onClose, onUpdate, members }: CardModalP
       });
       const assignee = members.find((m) => m.user.id === assigneeId)?.user || null;
       onUpdate(card.id, { title, description, priority, dueDate: dueDate || null, assigneeId, assignee });
+      onClose();
     } catch (error) {
       console.error('Failed to update card:', error);
     } finally {

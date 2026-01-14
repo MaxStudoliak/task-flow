@@ -115,7 +115,7 @@ export function DashboardPage() {
       )}
 
       <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
-        <DialogContent>
+        <DialogContent className="w-[95vw] max-w-md">
           <DialogHeader>
             <DialogTitle>{t.dashboard.createWorkspace}</DialogTitle>
           </DialogHeader>
@@ -126,7 +126,7 @@ export function DashboardPage() {
                 id="name"
                 value={newWorkspaceName}
                 onChange={(e) => setNewWorkspaceName(e.target.value)}
-                placeholder="My Workspace"
+                placeholder="Workspace"
               />
             </div>
             <div className="space-y-2">
@@ -139,11 +139,11 @@ export function DashboardPage() {
               />
             </div>
           </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setIsCreateOpen(false)}>
+          <DialogFooter className="flex-col sm:flex-row gap-2">
+            <Button variant="outline" onClick={() => setIsCreateOpen(false)} className="w-full sm:w-auto">
               {t.common.cancel}
             </Button>
-            <Button onClick={handleCreateWorkspace} disabled={!newWorkspaceName.trim()}>
+            <Button onClick={handleCreateWorkspace} disabled={!newWorkspaceName.trim()} className="w-full sm:w-auto">
               {t.common.create}
             </Button>
           </DialogFooter>

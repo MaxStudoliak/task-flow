@@ -373,4 +373,155 @@ export class CardService {
 
     return checklist;
   }
+
+  async toggleChecklist(cardId: string, checklistId: string, userId: string) {
+    const card = await prisma.card.findUnique({
+      where: { id: cardId },
+      include: {
+        list: {
+          include: {
+            board: {
+              include: {
+                workspace: { include: { members: true } }
+              }
+            }
+          }
+        }
+      }
+    });
+
+    if (!card) {
+      throw { statusCode: 404, message: 'Card not found' };
+    }
+
+    const member = card.list.board.workspace.members.find(m => m.userId === userId);
+    if (!member || member.role === 'VIEWER') {
+      throw { statusCode: 403, message: 'Not authorized' };
+    }
+
+    const checklist = await prisma.checklist.findUnique({
+      where: { id: checklistId }
+    });
+
+    if (!checklist || checklist.cardId !== cardId) {
+      throw { statusCode: 404, message: 'Checklist not found' };
+    }
+
+    return await prisma.checklist.update({
+      where: { id: checklistId },
+      data: { isCompleted: !checklist.isCompleted }
+    });
+  }
+
+  async deleteChecklist(cardId: string, checklistId: string, userId: string) {
+    const card = await prisma.card.findUnique({
+      where: { id: cardId },
+      include: {
+        list: {
+          include: {
+            board: {
+              include: {
+                workspace: { include: { members: true } }
+              }
+            }
+          }
+        }
+      }
+    });
+
+    if (!card) {
+      throw { statusCode: 404, message: 'Card not found' };
+    }
+
+    const member = card.list.board.workspace.members.find(m => m.userId === userId);
+    if (!member || member.role === 'VIEWER') {
+      throw { statusCode: 403, message: 'Not authorized' };
+    }
+
+    const checklist = await prisma.checklist.findUnique({
+      where: { id: checklistId }
+    });
+
+    if (!checklist || checklist.cardId !== cardId) {
+      throw { statusCode: 404, message: 'Checklist not found' };
+    }
+
+    await prisma.checklist.delete({
+      where: { id: checklistId }
+    });
+  }
+
+  async addLabel(cardId: string, name: string, color: string, userId: string) {
+    const card = await prisma.card.findUnique({
+      where: { id: cardId },
+      include: {
+        list: {
+          include: {
+            board: {
+              include: {
+                workspace: { include: { members: true } }
+              }
+            }
+          }
+        }
+      }
+    });
+
+    if (!card) {
+      throw { statusCode: 404, message: 'Card not found' };
+    }
+
+    const member = card.list.board.workspace.members.find(m => m.userId === userId);
+    if (!member || member.role === 'VIEWER') {
+      throw { statusCode: 403, message: 'Not authorized' };
+    }
+
+    const label = await prisma.label.create({
+      data: {
+        name,
+        color,
+        cardId
+      }
+    });
+
+    return label;
+  }
+
+  async deleteLabel(cardId: string, labelId: string, userId: string) {
+    const card = await prisma.card.findUnique({
+      where: { id: cardId },
+      include: {
+        list: {
+          include: {
+            board: {
+              include: {
+                workspace: { include: { members: true } }
+              }
+            }
+          }
+        }
+      }
+    });
+
+    if (!card) {
+      throw { statusCode: 404, message: 'Card not found' };
+    }
+
+    const member = card.list.board.workspace.members.find(m => m.userId === userId);
+    if (!member || member.role === 'VIEWER') {
+      throw { statusCode: 403, message: 'Not authorized' };
+    }
+
+    const label = await prisma.label.findUnique({
+      where: { id: labelId }
+    });
+
+    if (!label || label.cardId !== cardId) {
+      throw { statusCode: 404, message: 'Label not found' };
+    }
+
+    await prisma.label.delete({
+      where: { id: labelId }
+    });
+  }
 }

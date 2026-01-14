@@ -6,13 +6,19 @@ import {
   closestCorners,
   KeyboardSensor,
   PointerSensor,
+  TouchSensor,
   useSensor,
   useSensors,
   DragStartEvent,
   DragEndEvent,
   DragOverEvent,
 } from '@dnd-kit/core';
-import { arrayMove, SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable';
+import {
+  arrayMove,
+  SortableContext,
+  horizontalListSortingStrategy,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
 import { ArrowLeft, Plus, Users } from 'lucide-react';
 import type { List, Card } from '@/types';
 import { boardApi, listApi, cardApi } from '@/lib/api';
@@ -46,9 +52,31 @@ export function BoardPage() {
   const [selectedCard, setSelectedCard] = useState<Card | null>(null);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [activeType, setActiveType] = useState<'card' | 'list' | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 767px)');
+    const update = () => setIsMobile(media.matches);
+    update();
+    // Safari fallback for older APIs
+    if (media.addEventListener) media.addEventListener('change', update);
+    else media.addListener(update);
+    return () => {
+      if (media.removeEventListener) media.removeEventListener('change', update);
+      else media.removeListener(update);
+    };
+  }, []);
 
   const sensors = useSensors(
-    useSensor(PointerSensor, { activationConstraint: { distance: 8 } }),
+    // На мобильных используем TouchSensor, на десктопе — PointerSensor
+    isMobile
+      ? useSensor(TouchSensor, {
+        activationConstraint: {
+          delay: 150,
+          tolerance: 5,
+        },
+      })
+      : useSensor(PointerSensor, { activationConstraint: { distance: 8 } }),
     useSensor(KeyboardSensor)
   );
 
@@ -319,9 +347,12 @@ export function BoardPage() {
         onDragOver={handleDragOver}
         onDragEnd={handleDragEnd}
       >
-        <div className="flex-1 overflow-x-auto p-2 md:p-4">
-          <div className="flex h-full gap-2 md:gap-4">
-            <SortableContext items={lists.map((l) => l.id)} strategy={horizontalListSortingStrategy}>
+        <div className="flex-1 overflow-x-hidden md:overflow-x-auto p-2 md:p-4">
+          <div className="flex h-full flex-col md:flex-row gap-2 md:gap-4 min-w-0">
+            <SortableContext
+              items={lists.map((l) => l.id)}
+              strategy={isMobile ? verticalListSortingStrategy : horizontalListSortingStrategy}
+            >
               {lists.map((list) => (
                 <BoardList
                   key={list.id}
@@ -335,7 +366,7 @@ export function BoardPage() {
               ))}
             </SortableContext>
 
-            <div className="w-64 md:w-72 flex-shrink-0">
+            <div className="w-full md:w-72 flex-shrink-0">
               {isAddingList ? (
                 <div className="rounded-lg bg-slate-100 dark:bg-slate-800 p-2 md:p-3 space-y-2">
                   <Input
@@ -373,7 +404,7 @@ export function BoardPage() {
 
         <DragOverlay>
           {activeCard && (
-            <BoardCard card={activeCard} onClick={() => {}} onDelete={() => {}} />
+            <BoardCard card={activeCard} onClick={() => { }} onDelete={() => { }} />
           )}
           {activeList && (
             <div className="w-72 rounded-lg bg-slate-100 dark:bg-slate-800 p-3 opacity-80">
@@ -388,6 +419,7 @@ export function BoardPage() {
         open={!!selectedCard}
         onClose={() => setSelectedCard(null)}
         onUpdate={handleUpdateCard}
+        members={board.members || []}
       />
     </div>
   );

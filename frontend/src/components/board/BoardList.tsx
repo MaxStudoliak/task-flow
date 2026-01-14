@@ -45,7 +45,8 @@ export function BoardList({
 
   const style = {
     transform: CSS.Transform.toString(transform),
-    transition,
+    transition: transition || 'transform 220ms cubic-bezier(0.2, 0, 0, 1)',
+    willChange: 'transform',
   };
 
   const handleNameSubmit = () => {
@@ -69,9 +70,8 @@ export function BoardList({
     <div
       ref={setNodeRef}
       style={style}
-      className={`flex h-fit max-h-[calc(100vh-8rem)] w-[280px] sm:w-72 flex-shrink-0 flex-col rounded-lg bg-slate-100 dark:bg-slate-800 ${
-        isDragging ? 'opacity-50' : ''
-      }`}
+      className={`flex h-fit max-h-[calc(100vh-7rem)] sm:max-h-[calc(100vh-8rem)] w-full md:w-[260px] lg:w-72 md:flex-shrink-0 flex-col rounded-lg bg-slate-100 dark:bg-slate-800 ${isDragging ? 'opacity-50' : ''
+        }`}
     >
       <div className="flex items-center justify-between p-2 sm:p-3 pb-0">
         <div className="flex items-center gap-1 sm:gap-2 flex-1 min-w-0">

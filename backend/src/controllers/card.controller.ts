@@ -81,4 +81,40 @@ export class CardController {
       next(error);
     }
   }
+
+  async toggleChecklist(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const checklist = await cardService.toggleChecklist(req.params.id, req.params.checklistId, req.user!.id);
+      res.json({ success: true, data: checklist });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async deleteChecklist(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
+    try {
+      await cardService.deleteChecklist(req.params.id, req.params.checklistId, req.user!.id);
+      res.json({ success: true, message: 'Checklist deleted' });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async addLabel(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const label = await cardService.addLabel(req.params.id, req.body.name, req.body.color, req.user!.id);
+      res.status(201).json({ success: true, data: label });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async deleteLabel(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
+    try {
+      await cardService.deleteLabel(req.params.id, req.params.labelId, req.user!.id);
+      res.json({ success: true, message: 'Label deleted' });
+    } catch (error) {
+      next(error);
+    }
+  }
 }

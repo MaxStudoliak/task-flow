@@ -51,4 +51,28 @@ router.post(
   controller.addChecklist.bind(controller)
 );
 
+router.put(
+  '/:id/checklists/:checklistId',
+  controller.toggleChecklist.bind(controller)
+);
+
+router.delete(
+  '/:id/checklists/:checklistId',
+  controller.deleteChecklist.bind(controller)
+);
+
+router.post(
+  '/:id/labels',
+  validate([
+    body('name').notEmpty().withMessage('Label name is required'),
+    body('color').notEmpty().withMessage('Label color is required')
+  ]),
+  controller.addLabel.bind(controller)
+);
+
+router.delete(
+  '/:id/labels/:labelId',
+  controller.deleteLabel.bind(controller)
+);
+
 export default router;

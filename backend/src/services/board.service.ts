@@ -61,8 +61,18 @@ export class BoardService {
       throw { statusCode: 403, message: 'Not authorized to access this board' };
     }
 
+    // Get members with user info for assignee picker
+    const membersWithUsers = await prisma.workspaceMember.findMany({
+      where: { workspaceId: board.workspace.id },
+      include: {
+        user: {
+          select: { id: true, name: true, email: true, avatar: true }
+        }
+      }
+    });
+
     const { workspace, ...boardData } = board;
-    return { ...boardData, workspaceId: workspace.id };
+    return { ...boardData, workspaceId: workspace.id, members: membersWithUsers };
   }
 
   async create(data: CreateBoardDto, userId: string) {

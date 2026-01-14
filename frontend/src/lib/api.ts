@@ -8,6 +8,7 @@ import type {
   ApiResponse,
   Comment,
   Checklist,
+  Label,
 } from '@/types';
 
 const api = axios.create({
@@ -147,6 +148,18 @@ export const cardApi = {
 
   addChecklist: (id: string, title: string) =>
     api.post<ApiResponse<Checklist>>(`/cards/${id}/checklists`, { title }),
+
+  toggleChecklist: (id: string, checklistId: string) =>
+    api.put<ApiResponse<Checklist>>(`/cards/${id}/checklists/${checklistId}`),
+
+  deleteChecklist: (id: string, checklistId: string) =>
+    api.delete<ApiResponse<null>>(`/cards/${id}/checklists/${checklistId}`),
+
+  addLabel: (id: string, name: string, color: string) =>
+    api.post<ApiResponse<Label>>(`/cards/${id}/labels`, { name, color }),
+
+  deleteLabel: (id: string, labelId: string) =>
+    api.delete<ApiResponse<null>>(`/cards/${id}/labels/${labelId}`),
 };
 
 export default api;

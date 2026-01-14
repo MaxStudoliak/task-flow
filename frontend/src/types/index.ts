@@ -8,6 +8,7 @@ export interface User {
 
 export interface WorkspaceMember {
   id: string;
+  userId: string;
   role: 'OWNER' | 'ADMIN' | 'MEMBER' | 'VIEWER';
   joinedAt: string;
   user: Pick<User, 'id' | 'name' | 'email' | 'avatar'>;
@@ -34,6 +35,7 @@ export interface Board {
   createdAt: string;
   updatedAt: string;
   lists?: List[];
+  members?: WorkspaceMember[];
 }
 
 export interface List {

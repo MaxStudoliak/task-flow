@@ -5,6 +5,7 @@ import type { Card } from '@/types';
 import { cn, formatDate, getPriorityColor } from '@/lib/utils';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
+import { useLanguageStore } from '@/stores/language.store';
 
 interface BoardCardProps {
   card: Card;
@@ -13,6 +14,10 @@ interface BoardCardProps {
 }
 
 export function BoardCard({ card, onClick, onDelete }: BoardCardProps) {
+  const { language } = useLanguageStore();
+  const locale =
+    language === 'uk' ? 'uk-UA' : language === 'ru' ? 'ru-RU' : 'en-US';
+
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: card.id,
     data: { type: 'card', card },
@@ -20,7 +25,8 @@ export function BoardCard({ card, onClick, onDelete }: BoardCardProps) {
 
   const style = {
     transform: CSS.Transform.toString(transform),
-    transition,
+    transition: transition || 'transform 200ms cubic-bezier(0.2, 0, 0, 1)',
+    willChange: 'transform',
   };
 
   const handleDelete = (e: React.MouseEvent) => {
@@ -35,7 +41,7 @@ export function BoardCard({ card, onClick, onDelete }: BoardCardProps) {
       {...attributes}
       {...listeners}
       className={cn(
-        'group cursor-pointer rounded-lg bg-white dark:bg-slate-700 p-2 sm:p-3 shadow-sm hover:shadow-md transition-shadow touch-manipulation',
+        'group cursor-pointer rounded-lg bg-white dark:bg-slate-700 p-2 sm:p-3 shadow-sm hover:shadow-md transition-shadow touch-none',
         isDragging && 'opacity-50 shadow-lg'
       )}
       onClick={onClick}
@@ -77,7 +83,12 @@ export function BoardCard({ card, onClick, onDelete }: BoardCardProps) {
           <div className="flex items-center gap-0.5 text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">
             <Calendar className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
             <span className="hidden sm:inline">{formatDate(card.dueDate)}</span>
-            <span className="sm:hidden">{new Date(card.dueDate).toLocaleDateString('ru', { day: 'numeric', month: 'short' })}</span>
+            <span className="sm:hidden">
+              {new Date(card.dueDate).toLocaleDateString(locale, {
+                day: 'numeric',
+                month: 'short',
+              })}
+            </span>
           </div>
         )}
 

@@ -18,11 +18,11 @@ const httpServer = createServer(app);
 const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:3000';
 
 const io = new Server(httpServer, {
-  cors: {
-    origin: corsOrigin,
-    methods: ['GET', 'POST'],
-    credentials: true
-  }
+    cors: {
+        origin: corsOrigin,
+        methods: ['GET', 'POST'],
+        credentials: true,
+    },
 });
 
 app.use(helmet());
@@ -36,17 +36,18 @@ app.use('/api/lists', listRoutes);
 app.use('/api/cards', cardRoutes);
 
 app.get('/api/health', (_req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+    res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
 setupSocketHandlers(io);
 
 app.use(errorMiddleware);
 
-const PORT = process.env.PORT || 4000;
+const PORT = 4000;
+// process.env.PORT ||
 
 httpServer.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
 
 export { app, httpServer, io };
